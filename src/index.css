@@ -1,0 +1,120 @@
+.journalHeader{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+gap: 4px;
+background-color: rgb(250, 79, 79);
+color: white;
+font-weight: normal;
+font-size: 10px;
+}
+.journalHeader img{
+
+border-radius: 50%;
+
+
+}
+.journal-info {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-areas:
+    "photo location"
+    "photo details";
+  grid-template-rows: auto 1fr;
+  gap: 8px 24px;
+  max-width: 720px;
+  margin: 0 auto 24px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journal-info:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Main photo */
+.journal-info > img {
+  grid-area: photo;
+  width: 100%;
+  height: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Location row */
+.mountain-location {
+  grid-area: location;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.mountain-location img {
+  width: 15px;
+  height: 18px;
+}
+
+.mountain-location p {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mountain-location a {
+  margin-left: 8px;
+  color: #6b6b6b;
+  text-decoration: underline;
+}
+
+.mountain-location a:hover {
+  color: #000;
+}
+
+/* Name, date, text */
+.mountain-name {
+  grid-area: details;
+}
+
+.mountain-name h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+/* The date (first paragraph) */
+.mountain-name p:first-of-type {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* The description (second paragraph) */
+.mountain-name p:last-of-type {
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Mobile: stack everything */
+@media (max-width: 600px) {
+  .journal-info {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "location"
+      "details";
+  }
+
+  .journal-info > img {
+    max-height: 200px;
+  }
+}
